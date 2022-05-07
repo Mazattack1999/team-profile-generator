@@ -12,7 +12,7 @@ const Intern = require('./lib/Intern.js');
 const generateHTML = require('./src/generateHTML.js');
 
 // employees array of objects constructed using classes
-let employees = [];
+const employees = [];
 
 // ask user about manager properties
 const promptManager = () => {
@@ -171,6 +171,3 @@ const writeFile = (file, data) => {
 promptManager()
 .then(data => determineNextStep())
 .then(data => writeFile('./dist/index.html', generateHTML(employees)));
-
-// export employees
-module.exports = employees;
