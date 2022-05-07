@@ -28,7 +28,7 @@ const generateCards = (array) => {
                         <div class="card-content">
                             <p class="card-id">ID: ${emp.getId()}</p>
                             <p class="card-email">Email: <a href="mailto: ${emp.getEmail()}">${emp.getEmail()}</a></p>
-                            <p class="card-special-info">GitHub: <a href=${emp.getGithub()}>${emp.getGithub()}</a></p>
+                            <p class="card-special-info">GitHub: <a href=${emp.getGithub()}>${emp.github}</a></p>
                         </div>
                     </div>
                     `
