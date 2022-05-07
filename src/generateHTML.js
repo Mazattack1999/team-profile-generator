@@ -1,3 +1,4 @@
+// generate employee cards to be added to base html
 const generateCards = (array) => {
     const cards = array.map(emp => {
         // check what type of employee
@@ -54,6 +55,7 @@ const generateCards = (array) => {
     return cards.join('');
 }
 
+// generate all base html
 const generateHTML = (array) => {
     return `<!DOCTYPE html>
     <html lang="en">
