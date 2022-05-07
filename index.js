@@ -1,11 +1,17 @@
 // require inquirer for asking user questions
 const inquirer = require('inquirer');
+// require file system
+const fs = require('fs');
 
 // require 3 child classes
 const Manager = require('./lib/Manager.js');
 const Engineer = require('./lib/Engineer.js');
 const Intern = require('./lib/Intern.js');
 
+// require generateHTML 
+const generateHTML = require('./src/generateHTML.js');
+
+// employees array of objects constructed using classes
 let employees = [];
 
 // ask user about manager properties
@@ -151,8 +157,20 @@ const createEmployee = (employeeData, role) => {
     }
 }
 
+// write files using file system
+const writeFile = (file, data) => {
+    fs.writeFile(file, data, err => {
+        if (err) {
+            console.log(err);
+        }
+    })
+}
+
 
 // inquirer prompt beginning
 promptManager()
 .then(data => determineNextStep())
-.then(data => console.log(employees));
+.then(data => writeFile('./dist/index.html', generateHTML(employees)));
+
+// export employees
+module.exports = employees;
